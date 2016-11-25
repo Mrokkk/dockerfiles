@@ -1,11 +1,11 @@
 FROM pritunl/archlinux:latest
 
-RUN pacman -Suyy
-RUN pacman -S gcc clang llvm boost valgrind --noconfirm
-RUN pacman -S cmake make ninja --noconfirm
-RUN pacman -S python python2 python-pip --noconfirm
+RUN pacman -Suyy && \
+    pacman --noconfirm -S gcc clang llvm boost valgrind \
+    cmake make ninja \
+    python python2 python-pip \
+    git && \
+    pacman -Sc --noconfirm && paccache -qfruk0
 RUN pip install gcovr codecov
-RUN pacman -S git mercurial --noconfirm
-RUN pacman -Sc --noconfirm && paccache -qfruk0
 RUN touch ~/.bash_history
 

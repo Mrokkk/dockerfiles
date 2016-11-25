@@ -1,5 +1,4 @@
 FROM mrokkk/devel:latest
 
-RUN pacman -S qemu-headless qemu-headless-arch-extra cdrtools --noconfirm
-RUN pacman -Sc --noconfirm && paccache -qfruk0
+RUN pacman -S qemu-headless grub cdrtools xorriso mtools --noconfirm && pacman -Sc --noconfirm && paccache -qfruk0
 
